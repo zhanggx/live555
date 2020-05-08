@@ -361,7 +361,7 @@ void segmentationCallback(void* /*clientData*/,
     totalDuration -= segmentToRemove->duration();
     fprintf(stderr, "\tDeleting segment \"%s\" (duration: %f seconds) -> %f seconds of data stored\n",
 	    segmentToRemove->fileName(), segmentToRemove->duration(), totalDuration);
-    if (unlink(segmentToRemove->fileName()) != 0) {
+    if (_unlink(segmentToRemove->fileName()) != 0) {
       *env << "\t\tunlink(\"" << segmentToRemove->fileName() << "\") failed: " << env->getResultMsg() << "\n";
     }
     delete segmentToRemove;
